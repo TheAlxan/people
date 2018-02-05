@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>People</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <script src="main.js"></script>
+        <script src="jq.js"></script>
+    </head>
+    <body>
+    
+        <! ---------------------------------------- Name -->
+        <div id="name-panel" class="col col-md-10 col-md-offset-1"> 
+            <div class="panel panel-success">
+                <div class="panel-heading"><h4>Your current name is : <span id="current-name"><b><%= name %></b></span></h4></div>
+                <div class="panel-body">
+                    <select id="name-select" onchange="change_name()">
+                        <% users.forEach(user => { %>
+                            <option><%= user %></option>
+                        <% }) %>
+                    </select>
+                    <input id="name-input" type="text"/>
+                    <button id="name-btn" class="btn btn-success" id="name-btn" onclick="submit_name(this)">Submit</button><span class="err danger"></span><br/><br/>
+                    <span id="name-stat">You should select a name before posting or commenting</span>
+                </div>
+            </div>   
+        </div>
+        <! ---------------------------------------- /Name -->
+
+        <! ---------------------------------------- New Post -->
+        <div class="col col-md-10 col-md-offset-1" >    
+            <div class="alert alert-success">
+                <div class="container">
+                    <h4><b>Say somthing</b></h4>
+                    <input type="text" id="post-input"/>
+                    <button class="btn btn-success" onclick="submit_post(this)">Say</button>
+                    <span class="err danger"></span>
+                </div>
+            </div>
+        </div>
+        <! ---------------------------------------- /New Post -->
+
+        <div id="new-post"></div>
+
+        <! ---------------------------------------- Post -->
+        <% posts.forEach(function(post){ %>    
+            <% include post %>
+        <% }); %>
+        <! ---------------------------------------- /Post -->
+
+    </body>
+</html>

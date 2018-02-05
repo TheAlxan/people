@@ -1,0 +1,9 @@
+<div class="col col-md-10">
+    <div class="alert alert-info">
+        <span class="navbar-right">&emsp;</span>
+        <button class="btn btn-danger navbar-right" onclick="delete_comment(this)">&times;</button>
+        <input type="hidden" name="comment-id" value=<%= comment.id %>>
+        <h4>&emsp;&emsp;<b><%= comment.user %></b> commented:</h4>
+        <p>&emsp;&emsp;&emsp;&emsp;<%= comment.content %></p>
+    </div>
+</div>

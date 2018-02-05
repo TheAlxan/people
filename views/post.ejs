@@ -1,0 +1,22 @@
+    <div class="col col-md-10 col-md-offset-1">    
+        <div class="alert alert-info">
+            <div class="container">
+                <span class="navbar-right">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                <button class="btn btn-danger navbar-right" onclick="delete_post(this)">&times;</button>
+                <input type="hidden" name="id" value=<%= post.id %>>
+                <h4><b><%= post.user %></b> said:</h4>
+                <p>&emsp;&emsp;<%= post.content %></p>
+                <br/>
+                <span class="like"><b><%= post.likes %> Likes</b>&emsp;</span>
+                <br/>
+                <input type="text" placeholder="&nbsp;Comment..." name="comment-input">
+                <button class="btn btn-info" onclick="submit_comment(this)">Post</button>&nbsp;<button class="btn btn-success" onclick="like_post(this)">Like</button><span class="err danger"></span>
+                <br/><br/>
+                <% if(post.comments){ %>
+                <% post.comments.forEach(function(comment){ %>
+                    <% include comment %>
+                <% }); %>
+                <% } %>
+            </div>
+        </div>
+    </div>
