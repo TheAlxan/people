@@ -6,7 +6,7 @@ var validator = require('validator');
 require('promise');
 var db = require('./db.js');
 var app = express();
-app.listen(3001);
+app.listen(3000);
 
 app.set('view engine','ejs');
 app.set('views','views');
